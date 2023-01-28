@@ -1,0 +1,22 @@
+{
+  "name": "pupteeronlambda",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "zip": "zip -r scrape.zip index.js node_modules",
+    "upload": "aws s3 cp scrape.zip s3://scrapes69/Scrape_Liveuamap.zip",
+    "deploy": "aws lambda update-function-code --function-name Scrape_Liveuamap --s3-bucket scrapes69 --s3-key Scrape_Liveuamap.zip",
+    "builddeploy": "npm run zip && npm run upload && npm run deploy"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.1304.0",
+    "axios": "^1.2.5",
+    "chrome-aws-lambda": "^10.1.0",
+    "moment": "^2.29.4"
+  }
+}
